@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
             alignment: Alignment.center,
-            height: 100,
+            height: 150,
             child: ShoppingCartItemListView(),
           ),
         ],

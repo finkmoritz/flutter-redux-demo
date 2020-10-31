@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:reduxdemo/components/shopping_cart_item_view.dart';
 import 'package:reduxdemo/redux/app_state.dart';
+import 'package:reduxdemo/util/util.dart';
 
 class ShoppingCartItemListView extends StatefulWidget {
 
@@ -19,6 +20,7 @@ class _ShoppingCartItemListViewState extends State<ShoppingCartItemListView> {
         return store.state.shoppingCartItems;
       },
       builder: (context, items) {
+        double totalPrize = items.fold(0.0, (value, item) => value + item.prize);
         return Column(
           children: [
             Expanded(
@@ -29,6 +31,9 @@ class _ShoppingCartItemListViewState extends State<ShoppingCartItemListView> {
                   return ShoppingCartItemView(items[index]);
                 },
               ),
+            ),
+            Expanded(
+              child: Text('Total: ${Util.formatPrize(totalPrize)}'),
             ),
           ],
         );
