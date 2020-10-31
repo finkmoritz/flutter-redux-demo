@@ -1,5 +1,7 @@
-class AddToCartAction {
-  AddToCartAction(this.itemId);
+import 'package:reduxdemo/data/item.dart';
 
-  final int itemId;
+class AddToCartAction {
+  AddToCartAction(this.item);
+
+  final Item item;
 }

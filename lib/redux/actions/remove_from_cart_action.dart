@@ -1,5 +1,7 @@
-class RemoveFromCartAction {
-  RemoveFromCartAction(this.itemId);
+import 'package:reduxdemo/data/item.dart';
 
-  final int itemId;
+class RemoveFromCartAction {
+  RemoveFromCartAction(this.item);
+
+  final Item item;
 }

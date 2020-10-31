@@ -35,7 +35,7 @@ class _ShoppingCartItemViewState extends State<ShoppingCartItemView> {
   Widget _buildRemoveFromCartButton() {
     return StoreConnector<AppState,VoidCallback>(
       converter: (store) {
-        return () => store.dispatch(RemoveFromCartAction(widget.item.id));
+        return () => store.dispatch(RemoveFromCartAction(widget.item));
       },
       builder: (context, callback) {
         return IconButton(

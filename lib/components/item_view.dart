@@ -47,7 +47,7 @@ class _ItemViewState extends State<ItemView> {
   Widget _buildAddToCartButton() {
     return StoreConnector<AppState,VoidCallback>(
         converter: (store) {
-          return () => store.dispatch(AddToCartAction(widget.item.id));
+          return () => store.dispatch(AddToCartAction(widget.item));
         },
         builder: (context, callback) {
           return IconButton(
