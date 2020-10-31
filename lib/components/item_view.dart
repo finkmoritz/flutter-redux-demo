@@ -33,11 +33,11 @@ class _ItemViewState extends State<ItemView> {
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              _buildAddToCartButton(),
-            ],
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: _buildAddToCartButton(),
+            ),
           ),
         ],
       ),

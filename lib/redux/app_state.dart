@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reduxdemo/data/item.dart';
 import 'package:reduxdemo/redux/actions/add_to_cart_action.dart';
+import 'package:reduxdemo/redux/actions/remove_from_cart_action.dart';
 
 class AppState {
 
@@ -32,6 +33,10 @@ class AppState {
       int index = state.availableItems.indexWhere((item) => item.id == action.itemId);
       Item item = state.availableItems.removeAt(index);
       state.shoppingCartItems.add(item);
+    } else if(action is RemoveFromCartAction) {
+      int index = state.shoppingCartItems.indexWhere((item) => item.id == action.itemId);
+      Item item = state.shoppingCartItems.removeAt(index);
+      state.availableItems.add(item);
     } else {
       throw new Exception('Invalid action: $action');
     }

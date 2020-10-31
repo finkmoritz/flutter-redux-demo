@@ -19,7 +19,8 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           Container(
-            height: 100,
+            alignment: Alignment.center,
+            height: 80,
             child: ShoppingCartItemListView(),
           ),
           Expanded(

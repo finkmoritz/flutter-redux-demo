@@ -19,12 +19,21 @@ class _ShoppingCartItemListViewState extends State<ShoppingCartItemListView> {
         return store.state.shoppingCartItems;
       },
       builder: (context, items) {
-        return ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            return ShoppingCartItemView(items[index]);
-          },
+        return Column(
+          children: [
+            Center(
+              child: Text('Shopping Cart', style: TextStyle(fontWeight: FontWeight.bold,),),
+            ),
+            Expanded(
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  return ShoppingCartItemView(items[index]);
+                },
+              ),
+            ),
+          ],
         );
       },
     );
