@@ -6,7 +6,10 @@ import 'package:reduxdemo/redux/app_state.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    final store = Store<AppState>(AppState.reduce, initialState: AppState());
+    final store = Store<AppState>(
+        AppState.reduce,
+        initialState: AppState.example()
+    );
     await tester.pumpWidget(FlutterReduxDemoApp(store));
 
     expect(find.text('Total: 0.00 \$'), findsOneWidget);
