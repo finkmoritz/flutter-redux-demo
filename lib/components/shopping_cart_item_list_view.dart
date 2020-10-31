@@ -21,9 +21,6 @@ class _ShoppingCartItemListViewState extends State<ShoppingCartItemListView> {
       builder: (context, items) {
         return Column(
           children: [
-            Center(
-              child: Text('Shopping Cart', style: TextStyle(fontWeight: FontWeight.bold,),),
-            ),
             Expanded(
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,

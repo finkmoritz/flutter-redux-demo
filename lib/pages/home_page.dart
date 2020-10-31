@@ -18,13 +18,18 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          Container(
-            alignment: Alignment.center,
-            height: 80,
-            child: ShoppingCartItemListView(),
-          ),
           Expanded(
             child: ItemListView(),
+          ),
+          Divider(
+            color: Colors.blue,
+            height: 5.0,
+            thickness: 5.0,
+          ),
+          Container(
+            alignment: Alignment.center,
+            height: 100,
+            child: ShoppingCartItemListView(),
           ),
         ],
       ),
