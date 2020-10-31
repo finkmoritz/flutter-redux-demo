@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:intl/intl.dart';
 import 'package:reduxdemo/data/item.dart';
 import 'package:reduxdemo/redux/actions/add_to_cart_action.dart';
 import 'package:reduxdemo/redux/app_state.dart';
@@ -18,7 +19,7 @@ class _ItemViewState extends State<ItemView> {
 
   @override
   Widget build(BuildContext context) {
-    String prize = widget.item.prize.toStringAsFixed(2);
+    String prize = formatPrize(widget.item.prize);
     return Container(
       padding: EdgeInsets.all(8.0),
       color: widget.backroundColor,
@@ -57,6 +58,10 @@ class _ItemViewState extends State<ItemView> {
           );
         },
     );
+  }
+
+  String formatPrize(double prize) {
+    return NumberFormat("#,##0.00", "en_US").format(prize);
   }
 }
 
