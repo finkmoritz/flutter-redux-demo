@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:redux/redux.dart';
 import 'package:reduxdemo/flutter_redux_demo_app.dart';
+import 'package:reduxdemo/redux/app_state.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(FlutterReduxDemoApp());
+    final store = Store<AppState>(AppState.reduce, initialState: AppState());
+    await tester.pumpWidget(FlutterReduxDemoApp(store));
 
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
