@@ -1,30 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:reduxdemo/components/item_view.dart';
+import 'package:reduxdemo/components/shopping_cart_item_view.dart';
 import 'package:reduxdemo/redux/app_state.dart';
 
-class ItemListView extends StatefulWidget {
+class ShoppingCartItemListView extends StatefulWidget {
 
   @override
-  _ItemListViewState createState() => _ItemListViewState();
+  _ShoppingCartItemListViewState createState() => _ShoppingCartItemListViewState();
 }
 
-class _ItemListViewState extends State<ItemListView> {
+class _ShoppingCartItemListViewState extends State<ShoppingCartItemListView> {
 
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, List>(
       converter: (store) {
-        return store.state.availableItems;
+        return store.state.shoppingCartItems;
       },
       builder: (context, items) {
         return ListView.builder(
+          scrollDirection: Axis.horizontal,
           itemCount: items.length,
           itemBuilder: (context, index) {
-            return ItemView(
-                items[index],
-                index % 2 == 0 ? Colors.black26 : Colors.black12
-            );
+            return ShoppingCartItemView(items[index]);
           },
         );
       },

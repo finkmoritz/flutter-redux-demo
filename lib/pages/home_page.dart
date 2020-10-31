@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reduxdemo/components/item_list_view.dart';
+import 'package:reduxdemo/components/shopping_cart_item_list_view.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -15,7 +16,17 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Flutter Redux Demo'),
       ),
-      body: ItemListView(),
+      body: Column(
+        children: [
+          Container(
+            height: 100,
+            child: ShoppingCartItemListView(),
+          ),
+          Expanded(
+            child: ItemListView(),
+          ),
+        ],
+      ),
     );
   }
 }
