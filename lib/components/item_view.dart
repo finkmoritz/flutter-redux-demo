@@ -28,7 +28,7 @@ class _ItemViewState extends State<ItemView> {
             child: Column(
               children: [
                 Text(widget.item.title, style: TextStyle(fontWeight: FontWeight.bold,),),
-                Icon(widget.item.iconData, size: 48,),
+                Icon(widget.item.iconData, size: 48, color: Colors.blue,),
                 Text('${Util.formatPrize(widget.item.prize)}', style: TextStyle(fontStyle: FontStyle.italic,),),
               ],
             ),
@@ -50,10 +50,16 @@ class _ItemViewState extends State<ItemView> {
           return () => store.dispatch(AddToCartAction(widget.item));
         },
         builder: (context, callback) {
-          return IconButton(
+          return RawMaterialButton(
             onPressed: callback,
-            color: Colors.green,
-            icon: Icon(Icons.add_shopping_cart),
+            fillColor: Colors.white,
+            child: Icon(
+              Icons.add_shopping_cart,
+              color: Colors.green,
+              size: 24.0,
+            ),
+            padding: EdgeInsets.all(12.0),
+            shape: CircleBorder(),
           );
         },
     );
