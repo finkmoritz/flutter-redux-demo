@@ -21,10 +21,7 @@ class _ItemListViewState extends State<ItemListView> {
         return ListView.builder(
           itemCount: items.length,
           itemBuilder: (context, index) {
-            return ItemView(
-                items[index],
-                index % 2 == 0 ? Colors.black26 : Colors.black12
-            );
+            return ItemView(items[index]);
           },
         );
       },

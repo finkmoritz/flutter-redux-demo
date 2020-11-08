@@ -6,10 +6,9 @@ import 'package:reduxdemo/redux/app_state.dart';
 import 'package:reduxdemo/util/util.dart';
 
 class ItemView extends StatefulWidget {
-  ItemView(this.item, this.backroundColor) : super();
+  ItemView(this.item) : super();
 
   final Item item;
-  final Color backroundColor;
 
   @override
   _ItemViewState createState() => _ItemViewState();
@@ -19,9 +18,8 @@ class _ItemViewState extends State<ItemView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(8.0),
-      color: widget.backroundColor,
+    return Card(
+      elevation: 5,
       child: Stack(
         children: [
           Center(
